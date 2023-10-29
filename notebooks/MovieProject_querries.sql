@@ -1,9 +1,9 @@
 -- Movies Project - Querries
 /*
 Introducción del proyecto
-El cliente, dueño de una academia de idiomas, está interesado en quedarse con el videoclub con el que linda su actual negocio.
+El cliente, dueño de una academia de idiomas y autodefinido cinéfilo, está interesado en quedarse con el videoclub con el que linda su actual negocio.
 Le interesa para poder añadir un aula más y par ampliar su negocio al alquiler de películas para sus clientes, ya que defiende
-firmemente la idea de ver películas en ingles para mejorar el nivel de sus alumnos. El dueño del videoclub, que cuenta con dos
+firmemente la idea de ver películas en inglés para mejorar el nivel de sus alumnos. El dueño del videoclub, que cuenta con dos
 establecimientos, nos ha proporcionado varias tablas con información de su negocio para facilitar la venta.
 */
 -- Presentación al cliente de las películas de la base de datos en idioma inglés
@@ -89,8 +89,79 @@ GROUP BY f.film_id , f.title;
 
 /*
 Se da cuenta de que el dueño de la tienda no tiene las 623 películas en inventario, solo un total de 223. De las que 
-cumplen sus requísistos de edad e idioma estas son 121 películas.
+cumplen sus requísistos de edad e idioma estas son 121 películas con varias copias de cada una.
 */
+
+-- Estudio horario de los alquileres
+/*
+Al cliente le interesa saber que horquillas horarias son las que suelen emplear los viejos clientes del videoclub
+para saber si debe emplear a una persona o si los mismos profesores de la academia podrían hacer esta labor.
+
+Vamos a definir 4 rangos horarios y contar cuantos alquileres se hacen en dichos rangos. Parece que la tienda de alquiler
+tenía unos horarios de 24/7 por lo que vamos a separar la jornada en 4, cuando realmente la academia de idiomas solo abre
+de 6-18h.
+
+0-6h
+6-12h
+12-18h
+18-24h
+*/
+
+-- 00-6h
+SELECT 
+    COUNT(r.rental_id) Qty, f.rating Rating
+FROM
+    rental r
+        INNER JOIN
+    inventory i ON r.inventory_id = i.inventory_id
+        INNER JOIN
+    film f ON i.film_id = f.film_id
+WHERE
+    r.rental_time > 0 AND r.rental_time < 6
+        AND f.rating != 'G'
+GROUP BY f.rating;
+
+-- 6-12h
+SELECT 
+    COUNT(r.rental_id) Qty, f.rating Rating
+FROM
+    rental r
+        INNER JOIN
+    inventory i ON r.inventory_id = i.inventory_id
+        INNER JOIN
+    film f ON i.film_id = f.film_id
+WHERE
+    r.rental_time > 6 AND r.rental_time <= 12
+        AND f.rating != 'G'
+GROUP BY f.rating;
+
+-- 12-18h
+SELECT 
+    COUNT(r.rental_id) Qty, f.rating Rating
+FROM
+    rental r
+        INNER JOIN
+    inventory i ON r.inventory_id = i.inventory_id
+        INNER JOIN
+    film f ON i.film_id = f.film_id
+WHERE
+    r.rental_time > 12 AND r.rental_time <= 18
+        AND f.rating != 'G'
+GROUP BY f.rating;
+
+-- 18-24h
+SELECT 
+    COUNT(r.rental_id) Qty, f.rating Rating
+FROM
+    rental r
+        INNER JOIN
+    inventory i ON r.inventory_id = i.inventory_id
+        INNER JOIN
+    film f ON i.film_id = f.film_id
+WHERE
+    r.rental_time > 18 AND r.rental_time <= 24
+        AND f.rating != 'G'
+GROUP BY f.rating;
 
 
     
