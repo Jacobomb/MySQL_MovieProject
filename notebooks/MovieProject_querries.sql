@@ -163,5 +163,36 @@ WHERE
         AND f.rating != 'G'
 GROUP BY f.rating;
 
+/*
+Vamos a contar cuantos clientes únicos tiene el videoclub en el rango de tiempo comprendido en la base de datos
+historicos de alquileres. 
+Salen un total de 485 clientes y muchos de ellos tienen más de una película alquilada, con lo cual son clientes 
+recurrentes. Esto le interesa al dueño de la academia porque piensa que siempre pueden surgir nuevos alumnos de 
+esta clientela.
+*/
+SELECT 
+    r.customer_id CustomerID, COUNT(r.customer_id) Qty
+FROM
+    rental r
+GROUP BY r.customer_id
+ORDER BY r.customer_id;
+
+
+/*
+Ya que nuestro cliente es tan cinéfilo, le interesa saber que géneros de películas existen entre el repertorio delete
+videoclub y además estudiar si hay una relación entre el tipo de película que se alquila y la tardanza que pueda tener 
+el futuro cliente a la hora de devolver la película.
+Para ello vamos a crear una tabla temporal de la base de datos con las 628 películas que cumplieron estar en inglés y 
+además no eran para niños pequeños. A partir de esta tabla temporal calcularemos como se distribuyen los distintos
+estilos de películas.
+*/
+
+
+
+/*
+Ahora al cliente le interesa saber cuantos de los alquileres tienen un tiempo de devolución mayor a 3 días, 
+ya que piensa que si han pasado más de ese tiempo existe una gran posibilidad de que jamás le devuelvan la
+película
+*/
 
     
