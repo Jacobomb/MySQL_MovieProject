@@ -22,3 +22,36 @@ En primer lugar, mediante aplicación de funciones y métodos de Python se ha li
 
 Para este apartado se ha empleado un notebook separado para cada tabla y se pueden encontrar en la carpeta **notebooks**.
 
+A continuación se muestra una descripción del proceso llevado a cabo en la limpieza de las tablas. Varias se asemejan a la de `actor.csv` y se incluye también una descripición particular para `film.csv` y `rental.csv`
+
+#### `ACTOR.CSV`
+La limpieza de esta tabla consistió en comprobar si todos los datos de la columna ``last_update`` eran iguales, y tras confirmarlo proceder a borrarla.
+
+Después, tras comprobar que había todo valores únicos en la columna ``actor_id`` se procedió a comprobar si había algún duplicado en la dupla `first_name` y `last_name`. Aquí se dio con una actriz que aparecía dos veces por lo que se procedió a borrarlos.
+
+Finalmente se guarda el csv limpio con un nombre que lo distinga del fichero original y se traslada también a SQL.
+
+#### `FILM.CSV`
+La limpieza de esta tabla cosistió en primer lugar en eliminar la columna de ``last_update`` por ser todos los valores iguales y no aportar nada de información. Se hizo lo mismo con la columna `release_year` ya que todas las películas de la base de datos estaban estrenadas en el año 2006.
+
+A continuación se borró la columna `original-language-id` por contener todo valores nulos.
+
+Después se pasó a trabajar la columna de `special_features`. Esta columna informaba de cuantas y qué tipo de extras se incluían en cada película. Al aplicar el método `unique()` se pudo ver que había un total de hasta 4 extras en cada película y en la tabla original constaba de una lista de cada "extra" separado por comas. Decidimos separar esta información en 4 columnas distintas donde se informaba con un 0 o un 1 de si dicha película contaba con la pertinente característica. 
+
+Finalmente se pasa el database limpio a un csv y se manda también a la base de datos en SQL.
+
+#### `RENTAL.CSV`
+Una vez más, en el caso del fichero rental.csv se prescinde de la columna `last_update` por ser una columna llena de valores constantes.
+
+Después, tras comprobar de que tipo es cada columna se decicidió cambiar las columnas `rental_date` y `return_date` a *datetime* y además, para facilitar los querries de la segunda parte del proyecto se decide almacenar en 4 columnas diferentes el año, mes, día y hora tanto de `rental_date` como de `return_date`. Esto quiere decir que se crean 8 columnas nuevas en esta tabla. 
+
+Finalmente, e igual que con el resto de tablas, se pasa el dataframe limpio a un fichero csv y se manda a la base de datos en SQL.
+
+## SQL - QUERRIES
+Una vez se ha almacenado toda la información importante en sus respectivas tablas dentro de una única base de datos, se procede a explorar la información vía querries de SQL.
+
+El lector puede encontrar en el fichero de tipo SQL en la carpeta **notebooks** titulada `MovieProject_querries`.
+
+Algunas de las preguntas formuladas por el cliente son las siguientes:
+
+* ¿?
