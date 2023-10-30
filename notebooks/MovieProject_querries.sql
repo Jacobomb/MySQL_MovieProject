@@ -2,7 +2,7 @@
 /*
 Introducción del proyecto
 El cliente, dueño de una academia de idiomas y autodefinido cinéfilo, está interesado en quedarse con el videoclub con el que linda su actual negocio.
-Le interesa para poder añadir un aula más y par ampliar su negocio al alquiler de películas para sus clientes, ya que defiende
+Le interesa para poder añadir un aula más y para ampliar su negocio al alquiler de películas para sus clientes, ya que defiende
 firmemente la idea de ver películas en inglés para mejorar el nivel de sus alumnos. El dueño del videoclub, que cuenta con dos
 establecimientos, nos ha proporcionado varias tablas con información de su negocio para facilitar la venta.
 */
@@ -22,7 +22,7 @@ WHERE
     l.name = 'English';
     
     /* El cliente nos informa que la academia de inglés tiene una mayoría de jubilados por la mañana
-    y clases extraescolares por la tarde a niños. Sin embargo, como estos últimos ya solo usan Netflix y 
+    y clases extraescolares para niños por la tarde. Sin embargo, como estos últimos ya solo usan Netflix y 
     plataformas online, no le interesa tener películas de niños. Decide retirar las pelíclas con rating
     G: General Audiences y quedarse con PG (Parental Guide), PG-13 (Parents Strongly Cautioned), R (Restricted)
     y NC-17 (Adults Only).
@@ -176,23 +176,5 @@ FROM
     rental r
 GROUP BY r.customer_id
 ORDER BY r.customer_id;
-
-
-/*
-Ya que nuestro cliente es tan cinéfilo, le interesa saber que géneros de películas existen entre el repertorio delete
-videoclub y además estudiar si hay una relación entre el tipo de película que se alquila y la tardanza que pueda tener 
-el futuro cliente a la hora de devolver la película.
-Para ello vamos a crear una tabla temporal de la base de datos con las 628 películas que cumplieron estar en inglés y 
-además no eran para niños pequeños. A partir de esta tabla temporal calcularemos como se distribuyen los distintos
-estilos de películas.
-*/
-
-
-
-/*
-Ahora al cliente le interesa saber cuantos de los alquileres tienen un tiempo de devolución mayor a 3 días, 
-ya que piensa que si han pasado más de ese tiempo existe una gran posibilidad de que jamás le devuelvan la
-película
-*/
 
     
