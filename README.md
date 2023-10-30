@@ -4,7 +4,7 @@
 
 Este trabajo ha sido elaborado para cumplir las necesidades del cliente Ficticio S.L.
 
-Ficticio S.L., cliente de aquí en adelante, es dueño de una academia de idiomas y está interesado en ampliar su negocio y comprar el local que linda con su academia. Este local operaba como videoclub y su dueño P. Almodovar nos ha facilitado varias tablas con información de su negocio para facilitar la venta. 
+Ficticio S.L., *cliente* de aquí en adelante, es dueño de una academia de idiomas y está interesado en ampliar su negocio y comprar el local que linda con su academia. Este local operaba como videoclub y su dueño P. Almodovar nos ha facilitado varias tablas con información de su negocio para facilitar la venta. 
 
 La idea del cliente, autodenominado cinéfilo, es aprovechar parte del videoclub para añadir un aula más a su academia y además, ayudar a sus alumnos a mejorar y agilizar su aprendizaje alquilándoles películas en inglés.
 
