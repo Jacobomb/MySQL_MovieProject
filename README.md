@@ -54,4 +54,11 @@ El lector puede encontrar en el fichero de tipo SQL en la carpeta **notebooks** 
 
 Algunas de las preguntas formuladas por el cliente son las siguientes:
 
-* ¿?
+* "Ya que en mi academia enseñamos únicamente inglés, me interesa comprar las películas que estén en dicho idioma."
+* "En mi academia tenemos cursos de inglés para adultos por la mañana y para niños y jovenes por la tarde a modo de extraescolares. Como los jóvenes ya usan exclusicamente Netflix y plataformas de streaming online, no quiero películas para niños."
+* "La mejor manera de aprender inglés es, además de escuchar a nativos hablando el idioma, leer a la vez para interiorizar la pronunciación y significado de determinadas palabras. Para ello, me interesa que las películas que tenga entre mi oferta, saber cuales incluyen comentarios."
+* "El vendedor del videoclub tiene, además del establecimiento al lado de mi academia, otra tienda en el centro de la ciudad. Me gustaría saber cuantas copias hay en total de cada película entre ambas tiendas."
+* "Yo sé que el antiguo dueño del videoclub abría su tienda 24/7, sin embargo a mi me interesa mantener mi horario de apertura de 6-18h. Me gustaria saber a qué hora y que tipos de películas vendía el según la hora del día con el objetivo de saber si necesito algún empleado más o si con mis profesores bastaría."
+* "Me interesa saber cuantos clientes tenía P. Almodovar y cuantas películas solían alquilar, con la idea de ganar más clientes en mi academia y además saber si el negocio del alquiler es rentable. ¿Me podeis decir cuántos clientes tenía y si eran recurrentes?"
+
+Se anima al lector a entrar en el fichero de tipo SQL para comprobar la sintaxis de las querries.
